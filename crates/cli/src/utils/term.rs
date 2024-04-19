@@ -70,7 +70,7 @@ impl Spinner {
         }
 
         let indicator = self.indicator[self.idx % self.indicator.len()].green();
-        let indicator = Paint::new(format!("[{indicator}]")).bold();
+        let indicator = format!("[{indicator}]").bold();
         print!("\r\x33[2K\r{indicator} {}", self.message);
         io::stdout().flush().unwrap();
 
@@ -221,8 +221,8 @@ macro_rules! cli_warn {
     ($($arg:tt)*) => {
         eprintln!(
             "{}{} {}",
-            yansi::Painted::new("warning").yellow().bold(),
-            yansi::Painted::new(":").bold(),
+            "warning".yellow().bold(),
+            ":".bold(),
             format_args!($($arg)*)
         )
     }

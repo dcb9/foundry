@@ -13,7 +13,6 @@ use std::{
 };
 use tracing_error::ErrorLayer;
 use tracing_subscriber::prelude::*;
-use yansi::Paint;
 
 mod cmd;
 pub use cmd::*;
@@ -214,7 +213,7 @@ pub fn load_dotenv() {
 pub fn enable_paint() {
     let env_colour_disabled = std::env::var("NO_COLOR").is_ok();
     if env_colour_disabled {
-        Paint::disable();
+        yansi::disable();
     }
 }
 
