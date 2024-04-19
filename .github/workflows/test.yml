@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+      - updateYansi
   pull_request:
 
 concurrency:
