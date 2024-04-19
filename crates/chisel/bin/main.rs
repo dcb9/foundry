@@ -98,11 +98,6 @@ pub enum ChiselSubcommand {
 async fn main() -> eyre::Result<()> {
     handler::install();
     utils::subscriber();
-    #[cfg(windows)]
-    if !Paint::enable_windows_ascii() {
-        Paint::disable()
-    }
-
     utils::load_dotenv();
 
     // Parse command args
